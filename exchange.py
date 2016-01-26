@@ -19,9 +19,16 @@ class Exchange:
     # [ ] Price over time
     # [ ] Transaction list
 
+    # [ ] Add try/catch error statements
+
   def __init__(self, name, order_book_func):
     self.name = name
     self.order_book_func = order_book_func
+
+  # Opens this exchange for reading. Will throw an error 
+  # if opening fails
+  def open():
+    raise NotImplementedError("Need to implement open()")
 
   # Returns an associative array that represents the
   # exchange's order book. The two keys are 'bids' and 'asks'
@@ -42,5 +49,3 @@ class Exchange:
 
   def name(self):
     return self.name
-
-

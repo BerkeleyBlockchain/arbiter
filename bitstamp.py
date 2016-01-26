@@ -21,5 +21,15 @@ def bitstamp_order_book():
   IOobj = io.StringIO(stringResponse)
   assocArray = json.load(IOobj)
 
-  return assocArray
+  def canonicalize(book):
+    return {'bids': to_float_lists(book['bids']),
+            'asks': to_float_lists(book['asks'])}
+
+  def to_float_list(strs):
+    return [float(s) for s in strs]
+
+  def to_float_lists(strss):
+    return [to_float_list(strs) for strs in strss]
+    
+  return canonicalize(assocArray)
 

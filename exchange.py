@@ -21,9 +21,13 @@ class Exchange:
 
     # [ ] Add try/catch error statements
 
+  def load_order_book(self):
+    self.order_book = self.order_book_func()
+
   def __init__(self, name, order_book_func):
     self.name = name
     self.order_book_func = order_book_func
+    self.load_order_book()
 
   # Opens this exchange for reading. Will throw an error 
   # if opening fails
@@ -33,19 +37,16 @@ class Exchange:
   # Returns an associative array that represents the
   # exchange's order book. The two keys are 'bids' and 'asks'
   def order_book(self):
-    return self.order_book_func()
+    return self.order_book
 
   def bid(self):
-    ob = self.order_book()
-    return float(ob['bids'][0][0])
+    return self.order_book['bids'][0][0]
 
   def ask(self):
-    ob = self.order_book()
-    return float(ob['asks'][0][0])
+    return self.order_book['asks'][0][0]
 
   def spread(self):
-    ob = self.order_book()
-    return float(ob['asks'][0][0]) - float(ob['bids'][0][0])
+    return self.ask() - self.bid()
 
   def name(self):
     return self.name

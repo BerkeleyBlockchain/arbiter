@@ -1,0 +1,23 @@
+TODO
+====
+1. Generate full list of potential exchanges.
+  - List all fees that each exchange charges.
+  - Find how reputable each exchange is -- some exchanges will go out of 
+    business. (e.g. Mt. Gox, Cryptsy, Coin.mx)
+
+2. List out the most profitable exchange pairs
+  - Compute capital requirements to make profitable trades. 
+  - Compute settlement time.
+  - Choose least risky exchanges.
+  - Are cryptocurrencies other than Bitcoin more profitable for this?
+  - The bot should be able to find most profitable trades as a function of 
+    input capital.
+  - Tax considerations.
+
+3. Deposit small amounts of money and perform test trades.
+
+4. Use the bot to perform trades.
+
+This only one potential bot. Other strategies include
+  - Scour bitcoin news and trade on sentiments.
+  - Create financial models and trade on them.

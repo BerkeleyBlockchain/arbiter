@@ -7,8 +7,8 @@ from btce     import btce_order_book
 
 bitstamp = Exchange("Bitstamp", bitstamp_order_book)
 bitfinex = Exchange("Bitfinex", bitfinex_order_book)
-kraken = Exchange("Kraken", kraken_order_book)
+kraken   = Exchange("Kraken", kraken_order_book)
 coinbase = Exchange("Coinbase", coinbase_order_book)
-btce = Exchange("BTC-E", btce_order_book)
+btce     = Exchange("BTC-E", btce_order_book)
 
 exchanges = [bitfinex, coinbase, btce, kraken]

@@ -46,7 +46,6 @@ def bitonic_order_book():
   d = canonicalizeBuy(assocArray)
   d1 = canonicalizeSell(assocArray2)
   d.update(d1)
-  print(d)
 
   return d
 

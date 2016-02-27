@@ -9,6 +9,8 @@ def bitfinex_order_book():
   IOobj = io.StringIO(stringResponse)
   assocArray = json.load(IOobj)
 
+  url2 = "https://api.bitfinex.com/v1/pubticker/btcusd"
+
   def canonicalize(book):
     return {'bids': canon(book['bids']),
             'asks': canon(book['asks'])}

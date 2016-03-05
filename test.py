@@ -6,7 +6,6 @@ from coinbase import coinbase_order_book
 from btce     import btce_order_book
 from okcoin   import okcoin_order_book
 from bitonic  import bitonic_order_book
-from btcchina import btcchina_order_book
 from iibit    import iibit_order_book
 from localbitcoins import localbitcoins_order_book
 from shapeshift import shapeshift_order_book
@@ -18,7 +17,6 @@ coinbase = Exchange("Coinbase", coinbase_order_book)
 btce = Exchange("BTC-E", btce_order_book)
 okcoin = Exchange("okcoin", okcoin_order_book)
 bitonic = Exchange("bitonic", bitonic_order_book)
-btcchina = Exchange("btcchina", btcchina_order_book)
 iibit = Exchange("iibit", iibit_order_book)
 localbitcoins = Exchange("localbitcoins", localbitcoins_order_book)
 shapeshift = Exchange("shapeshift", shapeshift_order_book)

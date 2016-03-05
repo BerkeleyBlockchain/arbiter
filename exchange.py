@@ -39,6 +39,18 @@ class Exchange:
   def order_book(self):
     return self.order_book
 
+  def last(self):
+    return self.order_book['last']
+
+  def day_low(self):
+    return self.order_book['low']
+
+  def day_high(self):
+    return self.order_book['high']
+
+  def volume(self):
+    return self.order_book['volume']
+
   def bid(self):
     return self.order_book['bids'][0][0]
 

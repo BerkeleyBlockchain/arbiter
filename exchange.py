@@ -21,44 +21,50 @@ class Exchange:
 
     # [ ] Add try/catch error statements
 
-  def load_order_book(self):
-    self.order_book = self.order_book_func()
 
-  def __init__(self, name, order_book_func):
+  def __init__(self, name, pull_data_func=None):
     self.name = name
-    self.order_book_func = order_book_func
-    self.load_order_book()
+    self.pull_data_func = pull_data_func
+    self.load_data()
 
-  # Opens this exchange for reading. Will throw an error 
-  # if opening fails
-  def open():
-    raise NotImplementedError("Need to implement open()")
+  def load_data(self):
+      self.data = self.pull_data_func()
+
+  # Get the last trade price for the exchange
+  def last(self, reloadPrice=False):
+      return self.data['last']
 
   # Returns an associative array that represents the
   # exchange's order book. The two keys are 'bids' and 'asks'
-  def order_book(self):
-    return self.order_book
+  def order_book(self, reloadData=False):
+      return {'bids': self.data['bids'], 'asks': self.data['asks']}
 
   def last(self):
-    return self.order_book['last']
+    return self.data['last']
 
   def day_low(self):
-    return self.order_book['low']
+    return self.data['low']
 
   def day_high(self):
-    return self.order_book['high']
+    return self.data['high']
 
   def volume(self):
-    return self.order_book['volume']
+    return self.data['volume']
 
-  def bid(self):
-    return self.order_book['bids'][0][0]
+  def bid(self, reloadBook=False):
+    return self.data['bids'][0][0]
 
-  def ask(self):
-    return self.order_book['asks'][0][0]
+  def ask(self, reloadBook=False):
+    return self.data['asks'][0][0]
 
-  def spread(self):
+  def spread(self, reloadBook=False):
     return self.ask() - self.bid()
 
-  def name(self):
+  def name(self, reloadBook=False):
     return self.name
+  
+  def volume(self):
+    return self.data['volume']
+
+  def price_history(self):
+    return self.data['price_history']

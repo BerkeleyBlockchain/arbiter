@@ -3,27 +3,18 @@ import http.client
 import json
 
 from exchange import *
+from coinbase.wallet.client import Client
+
+client = Client(api_key, api_secret)
 
 def coinbase_order_book():
-  # Order book URL
-  url = "https://api.exchange.coinbase.com/products/BTC-USD/book?level=3"
+  buy = client.get_buy_price()
+  sell = client.get_sell_price()
 
-  # Response object
-  urlResponse = urllib.request.urlopen(url)
-
-  # Read response
-  bitRead = urlResponse.read()
-
-  # Convert bitstream response to string
-  stringResponse = bitRead.decode("utf-8")
-
-  # Load the associative array from the string
-  IOobj = io.StringIO(stringResponse)
-  assocArray = json.load(IOobj)
 
   def canonicalize(book):
-    return {'bids': [to_float_list(xs[:2]) for xs in book['bids']],
-            'asks': [to_float_list(xs[:2]) for xs in book['asks']]}
+    return {'bids': [buy]],
+            'asks': [sell]}
 
   def to_float_list(strs):
     return [float(s) for s in strs]

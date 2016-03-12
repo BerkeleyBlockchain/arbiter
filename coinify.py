@@ -4,7 +4,7 @@ import json
 
 from exchange import *
 
-def coinify_order_book():
+def coinify_pull_data():
   # Order book URL
 
   headers = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)' }
@@ -26,7 +26,10 @@ def coinify_order_book():
 
   def canonicalize(book):
     return {'bids': to_float_lists(book['bids']),
-            'asks': to_float_lists(book['asks'])}
+            'asks': to_float_lists(book['asks']),
+            'last': None,
+            'volume': None,
+            'price_history', None}
 
   def to_float_list(strs):
     return [float(s) for s in strs]

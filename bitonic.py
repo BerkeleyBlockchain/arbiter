@@ -4,7 +4,7 @@ import json
 
 from exchange import *
 
-def bitonic_order_book():
+def bitonic_pull_data():
   # Order book URL
 
   headers = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)' }
@@ -35,7 +35,6 @@ def bitonic_order_book():
 
   def canonicalizeSell(book):
     return {'asks': [[book['price']]]}
-
 
   def to_float_list(strs):
     return [float(s) for s in strs]

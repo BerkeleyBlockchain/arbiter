@@ -11,9 +11,8 @@ def coinbase_order_book():
   buy = client.get_buy_price()
   sell = client.get_sell_price()
 
-
   def canonicalize(book):
-    return {'bids': [buy]],
+    return {'bids': [buy],
             'asks': [sell]}
 
   def to_float_list(strs):

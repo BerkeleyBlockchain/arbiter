@@ -15,10 +15,12 @@ bitfinex = Exchange("Bitfinex", bitfinex_order_book)
 kraken = Exchange("Kraken", kraken_order_book)
 coinbase = Exchange("Coinbase", coinbase_order_book)
 btce = Exchange("BTC-E", btce_order_book)
-okcoin = Exchange("okcoin", okcoin_order_book)
 bitonic = Exchange("bitonic", bitonic_order_book)
-iibit = Exchange("iibit", iibit_order_book)
 localbitcoins = Exchange("localbitcoins", localbitcoins_order_book)
 shapeshift = Exchange("shapeshift", shapeshift_order_book)
 
-exchanges = [bitfinex, coinbase, btce, kraken, okcoin, bitonic, btcchina, iibit, localbitcoins]
+btce     = Exchange("BTC-E", btce_order_book)
+okcoin   = Exchange("Okcoin", okcoin_order_book)
+iibit    = Exchange("Itbit", iibit_order_book)
+
+exchanges = [bitstamp, shapeshift, bitfinex, coinbase, btce, kraken, okcoin, bitonic, btcchina, iibit, localbitcoins]

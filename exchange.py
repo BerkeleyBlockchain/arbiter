@@ -25,7 +25,6 @@ class Exchange:
   def __init__(self, name, pull_data_func=None):
     self.name = name
     self.pull_data_func = pull_data_func
-
     self.load_data()
 
   def load_data(self):
@@ -39,6 +38,18 @@ class Exchange:
   # exchange's order book. The two keys are 'bids' and 'asks'
   def order_book(self, reloadData=False):
       return {'bids': self.data['bids'], 'asks': self.data['asks']}
+
+  def last(self):
+    return self.data['last']
+
+  def day_low(self):
+    return self.data['low']
+
+  def day_high(self):
+    return self.data['high']
+
+  def volume(self):
+    return self.data['volume']
 
   def bid(self, reloadBook=False):
     return self.data['bids'][0][0]
